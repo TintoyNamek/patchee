@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>pitche</title>
+    <style>
+        body {
+            background-color: lightpink;
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        img {
+            width: 300px;
+            height: 300px;
+        }
+        
+        .container {
+            text-align: center;
+            background-color: white;
+            width: 500px;
+            height: 500px;
+            padding: 20px;
+        }
+
+        .container .loveMessage {
+            font-size: 48px; /* Adjust the font size as needed */
+        }
+        
+        button {
+           padding: 20px;
+           font-size: 20px;
+           border-radius: 10px;
+           background-color: pink;
+        }
+        
+        h2{
+            font-size: 200px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <img src="content://com.android.providers.media.documents/document/image%3A10983" alt="">
+        <h1>CLICK ENTER PO AS USUAL HEHE</h1>
+        <button onclick="displayLoveMessage()">ENTER</button>
+    </div>
+    
+    <audio id="audio" src="content://com.android.externalstorage.documents/document/primary%3Aproject%2FAudioCutter_Pamungkas%20-%20To%20the%20Bone.mp3"></audio>
+
+    <script>
+        var messages = ['Message 1', 'Message 2', 'Message 3', 'Message 4', 'Message 5', 'Message 6'];
+        var currentIndex = 0;
+
+        function displayLoveMessage() {
+            document.querySelector('h1').style.display = 'none';
+            document.querySelector('img').style.display = 'none';
+            document.querySelector('button').style.display = 'none';
+
+            var newImg = document.createElement('img');
+            newImg.src = 'content://com.android.providers.media.documents/document/image%3A10983';
+
+            var loveMessage = document.createElement('h2');
+            loveMessage.textContent = '';
+            loveMessage.classList.add('loveMessage'); // Add the 'loveMessage' class
+
+            var container = document.querySelector('.container');
+            container.appendChild(newImg);
+            container.appendChild(loveMessage);
+
+            var text = "yana";
+            var index = 0;
+            var interval = setInterval(function() {
+                if (index < text.length) {
+                    loveMessage.textContent += text.charAt(index);
+                    index++;
+                } else {
+                    clearInterval(interval);
+                    if (text === 'yana') {
+                        displayRandomMessages();
+                    }
+                }
+            }, 200);
+
+            function displayRandomMessages() {
+                var messageInterval = setInterval(function() {
+                    if (currentIndex < messages.length) {
+                        loveMessage.textContent = messages[currentIndex];
+                        currentIndex++;
+                    } else {
+                        clearInterval(messageInterval);
+                        if (currentIndex === 5) { // Changed to play audio after 5th message
+                            var audio = document.getElementById('audio');
+                            audio.play();
+                        }
+                    }
+                }, 1000);
+            }
+        }
+    </script>
+
+</body>
+</html>
