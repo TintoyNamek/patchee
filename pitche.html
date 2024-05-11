@@ -11,12 +11,12 @@
             justify-content: center;
             align-items: center;
         }
-        
+
         img {
             width: 300px;
             height: 300px;
         }
-        
+
         .container {
             text-align: center;
             background-color: white;
@@ -28,14 +28,14 @@
         .container .loveMessage {
             font-size: 48px; /* Adjust the font size as needed */
         }
-        
+
         button {
            padding: 20px;
            font-size: 20px;
            border-radius: 10px;
            background-color: pink;
         }
-        
+
         h2{
             font-size: 200px;
         }
@@ -48,9 +48,9 @@
         <h1>CLICK ENTER PO AS USUAL HEHE</h1>
         <button onclick="displayLoveMessage()">ENTER</button>
     </div>
-    
+
     <audio id="myAudio">
-        <source src="bby.mp3" type="audio/mp3">
+        <source src="bby.mp3" type="audio/mpeg">
         Your browser does not support the audio element.
     </audio>
 
@@ -64,7 +64,7 @@
             document.querySelector('button').style.display = 'none';
 
             var newImg = document.createElement('img');
-            newImg.src = 'content://com.android.providers.media.documents/document/image%3A10983';
+            newImg.src = 'heart.jpg';
 
             var loveMessage = document.createElement('h2');
             loveMessage.textContent = '';
