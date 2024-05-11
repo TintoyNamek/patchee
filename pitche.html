@@ -44,15 +44,18 @@
 <body>
 
     <div class="container">
-        <img src="content://com.android.providers.media.documents/document/image%3A10983" alt="">
+        <img src="heart.jpg">
         <h1>CLICK ENTER PO AS USUAL HEHE</h1>
         <button onclick="displayLoveMessage()">ENTER</button>
     </div>
     
-    <audio id="audio" src="bone.mp3"></audio>
+    <audio id="myAudio">
+        <source src="content://com.android.externalstorage.documents/document/primary%3Aproject%2Fbby.mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
 
     <script>
-        var messages = ['Message 1', 'Message 2', 'Message 3', 'Message 4', 'Message 5', 'Message 6'];
+        var messages = ['I', 'LOVE', 'YOU', 'TO', 'THE', 'BONE'];
         var currentIndex = 0;
 
         function displayLoveMessage() {
@@ -93,7 +96,7 @@
                     } else {
                         clearInterval(messageInterval);
                         if (currentIndex === 5) { // Changed to play audio after 5th message
-                            var audio = document.getElementById('audio');
+                            var audio = document.getElementById('myAudio'); // Corrected to match the ID in <audio>
                             audio.play();
                         }
                     }
